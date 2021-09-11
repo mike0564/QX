@@ -60,7 +60,7 @@ function day() {
         content += dayarr[i][0] + "," + u + "\n"
     }
     console.log(content);
-    $.notify.post('倒数日', "", content,"")
+    $.notify('倒数日', "", content,"")
     $done()
 }
 
