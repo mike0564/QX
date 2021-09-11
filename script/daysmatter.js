@@ -3,11 +3,11 @@
 
 使用:
 #每天 8点通知, 也可以自定义其他时间
-
-[Script]
-cron "0 8 * * *" script-path=https://github.com/congcong0806/surge-list/raw/master/Script/daysmatter.js
+quanx:
+  [task_local]
+  0 8 * * * https://raw.githubusercontent.com/mike0564/QX/main/script/daysmatter.js, tag=倒数日, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/daysmatter.png, enabled=true 
 */
-
+const $ = new compatibili();
 Date.prototype.format = function(fmt) {
     var date = {
             "M+": this.getMonth() + 1,
@@ -60,7 +60,7 @@ function day() {
         content += dayarr[i][0] + "," + u + "\n"
     }
     console.log(content);
-    $notify.post('倒数日', "", content)
+    $.notify.post('倒数日', "", content)
     $done()
 }
 
@@ -71,4 +71,18 @@ function valcal(days) {
         return "剩余:" + days + "天"
     else
         return "已过:" + Math.abs(days) + "天"
+}
+function compatibility() {
+  _isQuanX = typeof $task != "undefined";
+  _isLoon = typeof $loon != "undefined";
+  _isSurge = typeof $httpClient != "undefined" && !_isLoon;
+  this.read = (key) => {
+    if (_isQuanX) return $prefs.valueForKey(key);
+    if (_isLoon) return $persistentStore.read(key);
+  };
+  this.notify = (title, subtitle, message, url) => {
+    if (_isLoon) $notification.post(title, subtitle, message, url);
+    if (_isQuanX) $notify(title, subtitle, message, url);
+    if (_isSurge) $notification.post(title, subtitle, message, { url: url });
+  };
 }
