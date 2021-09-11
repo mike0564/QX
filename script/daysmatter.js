@@ -7,7 +7,7 @@ quanx:
   [task_local]
   0 8 * * * https://raw.githubusercontent.com/mike0564/QX/main/script/daysmatter.js, tag=倒数日, img-url=https://github.com/mike0564/QX/blob/main/iconset/daysmatter.png, enabled=true 
 */
-const $ = new compatibili();
+const $ = new env();
 Date.prototype.format = function(fmt) {
     var date = {
             "M+": this.getMonth() + 1,
@@ -72,7 +72,7 @@ function valcal(days) {
     else
         return "已过:" + Math.abs(days) + "天"
 }
-function compatibility() {
+function env() {
   _isQuanX = typeof $task != "undefined";
   _isLoon = typeof $loon != "undefined";
   _isSurge = typeof $httpClient != "undefined" && !_isLoon;
