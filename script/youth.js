@@ -38,7 +38,6 @@ if (isGetCookie = typeof $request !== 'undefined') {
     GetCookie();
     $.done()
 } else if (!$.isNode() && !cookieYouth) {
-    GetCookie();
     $.msg($.name, "您未获取中青Cookie", "请进入任务中心获取")
 } else {
     !(async() => {
