@@ -21,9 +21,9 @@ if (isGetCookie = typeof $request !==`undefined`) {
    $.done()
 } 
 if (!$.isNode() && !lookbodys) {
-    $.msg($.name, "您未获取看看赚请求，请先获取");
+    $.msg($.name, "您未获取看看赚请求，请先获取【lookbodys】");
 } else if (!$.isNode() && !startbodys) {
-    $.msg($.name, "您未获取浏览赚请求，请先获取");
+    $.msg($.name, "您未获取浏览赚请求，请先获取【startbodys】");
 }
 if (!$.isNode() && !startbodys.indexOf("&") == -1) {
     startArr.push(startbodys)
