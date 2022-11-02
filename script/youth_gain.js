@@ -8,7 +8,7 @@ https:\/\/kandian\.wkandian\.com\/V17\/NewTaskIos\/getTaskList url script-respon
 多个请求体时用'&'号或者换行隔开"，本脚本可自动删除失效请求，请须知 ‼️
 */
 
-const $ = new Env("中青看点浏览赚&看看赚")
+const $ = new Env("中青浏览赚")
 //const notify = $.isNode() ? require('./sendNotify') : '';
 let startArr = [], lookArr=[];
 let gainscore = 0, lookscore = 0;
